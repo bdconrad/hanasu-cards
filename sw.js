@@ -1,6 +1,6 @@
 /* Hanasu Cards service worker: network first, cache fallback, so the app works offline after one online visit. */
-const CACHE = 'hanasu-v2';
-const SHELL = ['./', 'index.html', 'styles.css', 'app.js', 'kana.js', 'kanji-data.js', 'manifest.webmanifest', 'icon.svg', 'apple-touch-icon.png', 'icon-512.png', 'decks/index.json'];
+const CACHE = 'hanasu-v3';
+const SHELL = ['./', 'index.html', 'styles.css', 'app.js', 'kana.js', 'kanji-data.js', 'manifest.webmanifest', 'icon.svg', 'apple-touch-icon.png', 'icon-512.png', 'icon-192.png', 'icon-32.png', 'favicon.ico', 'decks/index.json'];
 
 self.addEventListener('install', e => {
   e.waitUntil((async () => {
