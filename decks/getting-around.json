@@ -1,0 +1,216 @@
+{
+ "id": "getting-around",
+ "name": "Getting around",
+ "description": "Stations, directions, taxis.",
+ "cards": [
+  {
+   "id": "ga-01",
+   "ja": "駅はどこですか",
+   "romaji": "eki wa doko desu ka",
+   "en": "Where is the station?",
+   "examples": [
+    {
+     "ja": "すみません、駅はどこですか。",
+     "romaji": "sumimasen, eki wa doko desu ka.",
+     "en": "Excuse me, where is the station?"
+    }
+   ],
+   "level": 3,
+   "tip": "X wa doko desu ka is the template: X + wa (topic) + doko (where) + desu ka. Swap X for any place."
+  },
+  {
+   "id": "ga-02",
+   "ja": "トイレはどこですか",
+   "romaji": "toire wa doko desu ka",
+   "en": "Where is the toilet?",
+   "level": 3,
+   "tip": "Same template. toire is from English 'toilet'; otearai is the politer word on signs, with the same o- prefix as omizu."
+  },
+  {
+   "id": "ga-03",
+   "ja": "ここ",
+   "romaji": "koko",
+   "en": "Here",
+   "examples": [
+    {
+     "ja": "ここで降ります。",
+     "romaji": "koko de orimasu.",
+     "en": "I'll get off here."
+    }
+   ],
+   "level": 1,
+   "tip": "The ko-so-a-do set: ko- is near me. koko (here), kore (this thing), kono + noun (this X)."
+  },
+  {
+   "id": "ga-04",
+   "ja": "そこ",
+   "romaji": "soko",
+   "en": "There (near you)",
+   "level": 1,
+   "tip": "so- is near the listener. soko (there), sore (that thing), sono + noun."
+  },
+  {
+   "id": "ga-05",
+   "ja": "あそこ",
+   "romaji": "asoko",
+   "en": "Over there",
+   "level": 1,
+   "tip": "a- is away from both of you. asoko (over there), are (that thing over there), ano + noun."
+  },
+  {
+   "id": "ga-06",
+   "ja": "右",
+   "romaji": "migi",
+   "en": "Right (direction)",
+   "examples": [
+    {
+     "ja": "次の角を右に曲がってください。",
+     "romaji": "tsugi no kado o migi ni magatte kudasai.",
+     "en": "Turn right at the next corner."
+    }
+   ],
+   "level": 1,
+   "tip": "Noun. Add ni to make it a direction: migi ni (to the right). migigawa = the right side."
+  },
+  {
+   "id": "ga-07",
+   "ja": "左",
+   "romaji": "hidari",
+   "en": "Left (direction)",
+   "examples": [
+    {
+     "ja": "左にあります。",
+     "romaji": "hidari ni arimasu.",
+     "en": "It's on the left."
+    }
+   ],
+   "level": 1,
+   "tip": "Noun, same pattern: hidari ni magatte kudasai, please turn left."
+  },
+  {
+   "id": "ga-08",
+   "ja": "まっすぐ",
+   "romaji": "massugu",
+   "en": "Straight ahead",
+   "examples": [
+    {
+     "ja": "まっすぐ行ってください。",
+     "romaji": "massugu itte kudasai.",
+     "en": "Please go straight."
+    }
+   ],
+   "level": 1,
+   "tip": "Adverb. The small tsu (っ) is a stop: mas-sugu, not masugu. Hold the pause."
+  },
+  {
+   "id": "ga-09",
+   "ja": "近いですか",
+   "romaji": "chikai desu ka",
+   "en": "Is it close?",
+   "level": 2,
+   "tip": "chikai is an i-adjective; i-adjectives take desu directly. Negative: chikakunai desu."
+  },
+  {
+   "id": "ga-10",
+   "ja": "遠いですか",
+   "romaji": "tooi desu ka",
+   "en": "Is it far?",
+   "level": 2,
+   "tip": "i-adjective with a long o: too-i. A short toi is not a word; the length matters."
+  },
+  {
+   "id": "ga-11",
+   "ja": "この電車は新宿に行きますか",
+   "romaji": "kono densha wa shinjuku ni ikimasu ka",
+   "en": "Does this train go to Shinjuku?",
+   "level": 3,
+   "tip": "kono (this) + densha (train) + wa + place + ni (to, destination particle) + ikimasu (go) + ka. ni marks where you are heading."
+  },
+  {
+   "id": "ga-12",
+   "ja": "どこで乗り換えますか",
+   "romaji": "doko de norikaemasu ka",
+   "en": "Where do I transfer?",
+   "level": 2,
+   "tip": "de marks where an action happens. norikaeru = nori (ride) + kaeru (change)."
+  },
+  {
+   "id": "ga-13",
+   "ja": "切符",
+   "romaji": "kippu",
+   "en": "Ticket",
+   "examples": [
+    {
+     "ja": "切符を一枚ください。",
+     "romaji": "kippu o ichimai kudasai.",
+     "en": "One ticket, please."
+    }
+   ],
+   "level": 1,
+   "tip": "Noun with a stop: kip-pu. kippu uriba = ticket counter."
+  },
+  {
+   "id": "ga-14",
+   "ja": "改札",
+   "romaji": "kaisatsu",
+   "en": "Ticket gate",
+   "level": 1,
+   "tip": "kai (open) + satsu (ticket). kaisatsuguchi is the full word for the gate itself, with -guchi (opening)."
+  },
+  {
+   "id": "ga-15",
+   "ja": "出口",
+   "romaji": "deguchi",
+   "en": "Exit",
+   "examples": [
+    {
+     "ja": "東出口はどこですか。",
+     "romaji": "higashi deguchi wa doko desu ka.",
+     "en": "Where is the east exit?"
+    }
+   ],
+   "level": 1,
+   "tip": "de (go out, from deru) + guchi (mouth, opening). iriguchi is the entrance, same -guchi."
+  },
+  {
+   "id": "ga-16",
+   "ja": "ここまでお願いします",
+   "romaji": "koko made onegaishimasu",
+   "en": "To here, please (showing a taxi driver an address)",
+   "level": 2,
+   "tip": "made = up to, as far as. koko made = to here. Pair it with a map or written address in a taxi."
+  },
+  {
+   "id": "ga-17",
+   "ja": "ここで止めてください",
+   "romaji": "koko de tomete kudasai",
+   "en": "Please stop here",
+   "level": 2,
+   "tip": "tomete is the -te form of tomeru (to stop); -te kudasai is the polite 'please do'. Any verb works: matte kudasai, please wait."
+  },
+  {
+   "id": "ga-18",
+   "ja": "何番線ですか",
+   "romaji": "nanbansen desu ka",
+   "en": "Which platform?",
+   "level": 2,
+   "tip": "nan (what) + ban (number) + sen (line, track). nan + a counter asks 'which' or 'how many'."
+  },
+  {
+   "id": "ga-19",
+   "ja": "バス停",
+   "romaji": "basutei",
+   "en": "Bus stop",
+   "level": 1,
+   "tip": "basu (bus, loanword) + tei (stop). Loanwords are written in katakana."
+  },
+  {
+   "id": "ga-20",
+   "ja": "歩いて行けますか",
+   "romaji": "aruite ikemasu ka",
+   "en": "Can I walk there?",
+   "level": 2,
+   "tip": "aruite (-te form of aruku, walk) + ikemasu (can go, potential of iku). The -te form chains verbs: 'walking, can I go'."
+  }
+ ]
+}

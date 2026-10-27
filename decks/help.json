@@ -1,0 +1,190 @@
+{
+ "id": "help",
+ "name": "Help & small talk",
+ "description": "Trouble, health, and the sentences that keep a conversation going.",
+ "cards": [
+  {
+   "id": "he-01",
+   "ja": "助けてください",
+   "romaji": "tasukete kudasai",
+   "en": "Please help me",
+   "level": 2,
+   "tip": "tasukete is the -te form of tasukeru (help, rescue) + kudasai. On its own, tasukete! is the emergency shout."
+  },
+  {
+   "id": "he-02",
+   "ja": "道に迷いました",
+   "romaji": "michi ni mayoimashita",
+   "en": "I'm lost",
+   "level": 2,
+   "tip": "michi (road) + ni + mayoimashita (past of mayou, to be lost): 'lost on the road'."
+  },
+  {
+   "id": "he-03",
+   "ja": "財布をなくしました",
+   "romaji": "saifu o nakushimashita",
+   "en": "I lost my wallet",
+   "accept": [
+    "saifu wo nakushimashita"
+   ],
+   "level": 2,
+   "tip": "nakushimashita is the past polite of nakusu (to lose). Swap the noun: pasupooto o nakushimashita."
+  },
+  {
+   "id": "he-04",
+   "ja": "病院",
+   "romaji": "byouin",
+   "en": "Hospital",
+   "examples": [
+    {
+     "ja": "近くに病院はありますか。",
+     "romaji": "chikaku ni byouin wa arimasu ka.",
+     "en": "Is there a hospital nearby?"
+    }
+   ],
+   "level": 1,
+   "tip": "byou (illness) + in (institution). Long o on byou. biyouin, with an i, is a hair salon."
+  },
+  {
+   "id": "he-05",
+   "ja": "薬局",
+   "romaji": "yakkyoku",
+   "en": "Pharmacy",
+   "level": 1,
+   "tip": "yaku (medicine) + kyoku (office). kusuri is the medicine itself. Chains often say doraggu sutoa."
+  },
+  {
+   "id": "he-06",
+   "ja": "気分が悪いです",
+   "romaji": "kibun ga warui desu",
+   "en": "I feel sick",
+   "level": 2,
+   "tip": "kibun (feeling) + ga + warui (bad, i-adjective) + desu. X ga warui = X is bad. Headache: atama ga itai."
+  },
+  {
+   "id": "he-07",
+   "ja": "警察",
+   "romaji": "keisatsu",
+   "en": "Police",
+   "level": 1,
+   "tip": "Police. kouban is the neighbourhood police box, the one you will actually find."
+  },
+  {
+   "id": "he-08",
+   "ja": "アメリカから来ました",
+   "romaji": "amerika kara kimashita",
+   "en": "I'm from America",
+   "examples": [
+    {
+     "ja": "アメリカから来ました。アリゾナです。",
+     "romaji": "amerika kara kimashita. arizona desu.",
+     "en": "I'm from America. Arizona."
+    }
+   ],
+   "level": 2,
+   "tip": "kara = from. kimashita = came, past of kuru. Country + kara kimashita is the standard origin line."
+  },
+  {
+   "id": "he-09",
+   "ja": "日本は初めてです",
+   "romaji": "nihon wa hajimete desu",
+   "en": "It's my first time in Japan",
+   "level": 2,
+   "tip": "hajimete = for the first time, same root as hajimemashite. X wa hajimete desu = X is a first for me."
+  },
+  {
+   "id": "he-10",
+   "ja": "三ヶ月います",
+   "romaji": "sankagetsu imasu",
+   "en": "I'm here for three months",
+   "level": 1,
+   "tip": "san + kagetsu (counter for months) + imasu (am, for people). A duration takes no particle."
+  },
+  {
+   "id": "he-11",
+   "ja": "日本語を勉強しています",
+   "romaji": "nihongo o benkyou shite imasu",
+   "en": "I'm studying Japanese",
+   "accept": [
+    "nihongo wo benkyou shite imasu"
+   ],
+   "level": 3,
+   "tip": "benkyou (study) is a noun; + suru makes it a verb. shite imasu = am doing. Many nouns become verbs with suru."
+  },
+  {
+   "id": "he-12",
+   "ja": "お名前は何ですか",
+   "romaji": "onamae wa nan desu ka",
+   "en": "What is your name?",
+   "level": 3,
+   "tip": "o- + namae (name) is honorific for their name; your own is plain namae. Reply: [name] desu."
+  },
+  {
+   "id": "he-13",
+   "ja": "お仕事は何ですか",
+   "romaji": "oshigoto wa nan desu ka",
+   "en": "What do you do for work?",
+   "level": 3,
+   "tip": "Same o- pattern on shigoto (work). Answer with your job + desu."
+  },
+  {
+   "id": "he-14",
+   "ja": "いいですね",
+   "romaji": "ii desu ne",
+   "en": "That's nice / Sounds good",
+   "level": 1,
+   "tip": "ii (good) + desu + ne. ne seeks agreement, like 'isn't it'. The most common listener response."
+  },
+  {
+   "id": "he-15",
+   "ja": "そうですか",
+   "romaji": "sou desu ka",
+   "en": "Is that so? / I see",
+   "level": 1,
+   "tip": "sou (so) + desu + ka. Falling tone: I see. Rising tone: really? Keeps the other person talking."
+  },
+  {
+   "id": "he-16",
+   "ja": "そうですね",
+   "romaji": "sou desu ne",
+   "en": "That's right / Yeah, isn't it",
+   "level": 1,
+   "tip": "ne instead of ka turns it into agreement, or a thinking filler. Casual: sou da ne."
+  },
+  {
+   "id": "he-17",
+   "ja": "ちょっと待ってください",
+   "romaji": "chotto matte kudasai",
+   "en": "Please wait a moment",
+   "level": 2,
+   "tip": "chotto (a little) + matte (-te form of matsu, wait) + kudasai. Casual: chotto matte."
+  },
+  {
+   "id": "he-18",
+   "ja": "写真を撮ってもいいですか",
+   "romaji": "shashin o totte mo ii desu ka",
+   "en": "May I take a photo?",
+   "accept": [
+    "shashin wo totte mo ii desu ka"
+   ],
+   "level": 3,
+   "tip": "-te mo ii desu ka = may I. totte is the -te form of toru (take). Swap the verb: haitte mo ii desu ka, may I come in."
+  },
+  {
+   "id": "he-19",
+   "ja": "これは何と言いますか",
+   "romaji": "kore wa nan to iimasu ka",
+   "en": "What is this called?",
+   "level": 3,
+   "tip": "to marks a quotation; nan to iimasu ka = 'what is it called'. Use it to learn any word on the spot."
+  },
+  {
+   "id": "he-20",
+   "ja": "楽しかったです",
+   "romaji": "tanoshikatta desu",
+   "en": "That was fun",
+   "level": 1,
+   "tip": "i-adjective past: tanoshii → tanoshikatta. The tense goes on the adjective; desu stays. oishikatta, same pattern."
+  }
+ ]
+}

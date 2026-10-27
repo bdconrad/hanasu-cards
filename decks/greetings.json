@@ -1,0 +1,283 @@
+{
+ "id": "greetings",
+ "name": "Greetings & basics",
+ "description": "The phrases you say twenty times a day. All polite register.",
+ "cards": [
+  {
+   "id": "gr-01",
+   "ja": "おはようございます",
+   "romaji": "ohayou gozaimasu",
+   "en": "Good morning (polite)",
+   "examples": [
+    {
+     "ja": "おはようございます。今日もいい天気ですね。",
+     "romaji": "ohayou gozaimasu. kyou mo ii tenki desu ne.",
+     "en": "Good morning. Nice weather again today."
+    }
+   ],
+   "level": 1,
+   "tip": "ohayou is the greeting; gozaimasu is the polite verb ending that lifts it to formal. Casual: ohayou. Morning only, roughly before 10 or 11."
+  },
+  {
+   "id": "gr-02",
+   "ja": "こんにちは",
+   "romaji": "konnichiwa",
+   "en": "Hello / Good afternoon",
+   "examples": [
+    {
+     "ja": "こんにちは、はじめまして。",
+     "romaji": "konnichiwa, hajimemashite.",
+     "en": "Hello, nice to meet you."
+    }
+   ],
+   "level": 1,
+   "tip": "Set greeting from midday on. The final wa is the topic particle は, which is why it is written は but said wa. Neutral register, no casual/formal split."
+  },
+  {
+   "id": "gr-03",
+   "ja": "こんばんは",
+   "romaji": "konbanwa",
+   "en": "Good evening",
+   "level": 1,
+   "tip": "Evening counterpart of konnichiwa, same wa ending and same neutral register."
+  },
+  {
+   "id": "gr-04",
+   "ja": "ありがとうございます",
+   "romaji": "arigatou gozaimasu",
+   "en": "Thank you (polite)",
+   "examples": [
+    {
+     "ja": "手伝ってくれて、ありがとうございます。",
+     "romaji": "tetsudatte kurete, arigatou gozaimasu.",
+     "en": "Thank you for helping me."
+    },
+    {
+     "ja": "どうもありがとうございます。",
+     "romaji": "doumo arigatou gozaimasu.",
+     "en": "Thank you very much."
+    }
+   ],
+   "level": 1,
+   "tip": "arigatou (thank you) + gozaimasu (polite ending). Casual: arigatou, or just doumo. Past tense arigatou gozaimashita thanks for something already finished."
+  },
+  {
+   "id": "gr-05",
+   "ja": "すみません",
+   "romaji": "sumimasen",
+   "en": "Excuse me / Sorry (to get attention or apologise)",
+   "examples": [
+    {
+     "ja": "すみません、駅はどこですか。",
+     "romaji": "sumimasen, eki wa doko desu ka.",
+     "en": "Excuse me, where is the station?"
+    },
+    {
+     "ja": "すみません、お水をください。",
+     "romaji": "sumimasen, omizu o kudasai.",
+     "en": "Excuse me, water please."
+    }
+   ],
+   "level": 1,
+   "tip": "Polite set phrase that covers apology, getting attention, and thanks-for-your-trouble. Casual: gomen. Stretch it (sumimaseeen) to call a waiter."
+  },
+  {
+   "id": "gr-06",
+   "ja": "ごめんなさい",
+   "romaji": "gomen nasai",
+   "en": "I'm sorry (apology)",
+   "level": 1,
+   "tip": "gomen (sorry) + nasai (a soft command ending). Warmer and more personal than sumimasen; for when you actually did something. Casual: gomen or gomen ne."
+  },
+  {
+   "id": "gr-07",
+   "ja": "はじめまして",
+   "romaji": "hajimemashite",
+   "en": "Nice to meet you (first meeting)",
+   "examples": [
+    {
+     "ja": "はじめまして、ベンです。",
+     "romaji": "hajimemashite, ben desu.",
+     "en": "Nice to meet you, I'm Ben."
+    }
+   ],
+   "level": 1,
+   "tip": "From hajimeru (to begin): literally 'for the first time'. Said once at a first meeting, any register."
+  },
+  {
+   "id": "gr-08",
+   "ja": "よろしくお願いします",
+   "romaji": "yoroshiku onegaishimasu",
+   "en": "Please treat me well / Pleased to work with you",
+   "examples": [
+    {
+     "ja": "ベンです。よろしくお願いします。",
+     "romaji": "ben desu. yoroshiku onegaishimasu.",
+     "en": "I'm Ben. Pleased to meet you."
+    }
+   ],
+   "level": 2,
+   "tip": "yoroshiku (well, favourably) + onegaishimasu (I request). Closes an introduction; also 'please take care of it' when handing something over. Casual: yoroshiku."
+  },
+  {
+   "id": "gr-09",
+   "ja": "お願いします",
+   "romaji": "onegaishimasu",
+   "en": "Please (requesting something)",
+   "examples": [
+    {
+     "ja": "これ、お願いします。",
+     "romaji": "kore, onegaishimasu.",
+     "en": "This one, please."
+    },
+    {
+     "ja": "チェックイン、お願いします。",
+     "romaji": "chekku in, onegaishimasu.",
+     "en": "Check-in, please."
+    }
+   ],
+   "level": 1,
+   "tip": "o- (honorific prefix) + negai (wish) + shimasu (do, polite). Any noun + onegaishimasu is a complete polite request. Casual: onegai."
+  },
+  {
+   "id": "gr-10",
+   "ja": "はい",
+   "romaji": "hai",
+   "en": "Yes",
+   "level": 1,
+   "tip": "Yes, but also 'I'm listening' and 'here you go'. Formal and casual alike. un is the casual yes."
+  },
+  {
+   "id": "gr-11",
+   "ja": "いいえ",
+   "romaji": "iie",
+   "en": "No",
+   "level": 1,
+   "tip": "Polite no, also 'don't mention it' after thanks. Casual: uun or iya. Japanese often avoids a flat no; chotto... is the softer refusal."
+  },
+  {
+   "id": "gr-12",
+   "ja": "大丈夫です",
+   "romaji": "daijoubu desu",
+   "en": "It's fine / I'm okay / No thanks",
+   "examples": [
+    {
+     "ja": "袋は大丈夫です。",
+     "romaji": "fukuro wa daijoubu desu.",
+     "en": "I don't need a bag."
+    },
+    {
+     "ja": "大丈夫ですか。",
+     "romaji": "daijoubu desu ka.",
+     "en": "Are you okay?"
+    }
+   ],
+   "level": 1,
+   "tip": "daijoubu (okay, fine) is a na-adjective; desu is the polite copula, 'is'. Drop desu for casual. Rising tone makes it a question. Also a polite 'no thanks'."
+  },
+  {
+   "id": "gr-13",
+   "ja": "わかりました",
+   "romaji": "wakarimashita",
+   "en": "Understood / Got it",
+   "examples": [
+    {
+     "ja": "はい、わかりました。",
+     "romaji": "hai, wakarimashita.",
+     "en": "Yes, understood."
+    }
+   ],
+   "level": 1,
+   "tip": "Past polite form of wakaru (to understand). Past tense signals 'got it, done'. Casual: wakatta."
+  },
+  {
+   "id": "gr-14",
+   "ja": "わかりません",
+   "romaji": "wakarimasen",
+   "en": "I don't understand / I don't know",
+   "examples": [
+    {
+     "ja": "すみません、よくわかりません。",
+     "romaji": "sumimasen, yoku wakarimasen.",
+     "en": "Sorry, I don't really understand."
+    }
+   ],
+   "level": 1,
+   "tip": "-masen is the polite negative ending of a verb: wakaru → wakarimasen. Casual: wakaranai."
+  },
+  {
+   "id": "gr-15",
+   "ja": "日本語が少しわかります",
+   "romaji": "nihongo ga sukoshi wakarimasu",
+   "en": "I understand a little Japanese",
+   "level": 2,
+   "tip": "nihongo (Japanese) + ga (subject particle) + sukoshi (a little) + wakarimasu (understand). wakaru takes ga, not o."
+  },
+  {
+   "id": "gr-16",
+   "ja": "もう一度お願いします",
+   "romaji": "mou ichido onegaishimasu",
+   "en": "Once more, please",
+   "examples": [
+    {
+     "ja": "すみません、もう一度お願いします。",
+     "romaji": "sumimasen, mou ichido onegaishimasu.",
+     "en": "Sorry, once more please."
+    }
+   ],
+   "level": 2,
+   "tip": "mou (again, more) + ichido (one time) + onegaishimasu (please). Any noun phrase + onegaishimasu is a request."
+  },
+  {
+   "id": "gr-17",
+   "ja": "ゆっくりお願いします",
+   "romaji": "yukkuri onegaishimasu",
+   "en": "Slowly, please",
+   "level": 2,
+   "tip": "yukkuri (slowly) is an adverb. Add it to any request: yukkuri hanashite kudasai, please speak slowly."
+  },
+  {
+   "id": "gr-18",
+   "ja": "英語を話せますか",
+   "romaji": "eigo o hanasemasu ka",
+   "en": "Can you speak English?",
+   "accept": [
+    "eigo wo hanasemasu ka"
+   ],
+   "level": 2,
+   "tip": "eigo (English) + o (object particle) + hanasemasu (can speak, potential form of hanasu) + ka (question marker). ka turns any polite sentence into a question with no word-order change."
+  },
+  {
+   "id": "gr-19",
+   "ja": "失礼します",
+   "romaji": "shitsurei shimasu",
+   "en": "Excuse me (entering or leaving a room)",
+   "level": 1,
+   "tip": "shitsurei (rudeness) + shimasu (I do): 'I'm being rude', said when entering, leaving, or hanging up. Past tense shitsurei shimashita apologises for something already done."
+  },
+  {
+   "id": "gr-20",
+   "ja": "お疲れ様です",
+   "romaji": "otsukaresama desu",
+   "en": "Thanks for your hard work (greeting among coworkers)",
+   "level": 1,
+   "tip": "o- + tsukare (tiredness) + sama (honorific) + desu. 'You must be tired' as appreciation. Workplace greeting and goodbye; reply with the same. Casual: otsukare."
+  },
+  {
+   "id": "gr-21",
+   "ja": "さようなら",
+   "romaji": "sayounara",
+   "en": "Goodbye (formal, long parting)",
+   "level": 1,
+   "tip": "Formal farewell that implies a long absence. In daily life use ja mata, mata ashita, or shitsurei shimasu."
+  },
+  {
+   "id": "gr-22",
+   "ja": "じゃ、また",
+   "romaji": "ja, mata",
+   "en": "See you (casual)",
+   "level": 1,
+   "tip": "ja (well then) + mata (again). Casual. Polite version: dewa mata. mata ashita = see you tomorrow."
+  }
+ ]
+}

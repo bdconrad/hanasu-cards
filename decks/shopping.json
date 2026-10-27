@@ -1,0 +1,182 @@
+{
+ "id": "shopping",
+ "name": "Shopping & money",
+ "description": "Konbini, shops, and the register script.",
+ "cards": [
+  {
+   "id": "sh-01",
+   "ja": "いくらですか",
+   "romaji": "ikura desu ka",
+   "en": "How much is it?",
+   "examples": [
+    {
+     "ja": "これはいくらですか。",
+     "romaji": "kore wa ikura desu ka.",
+     "en": "How much is this?"
+    }
+   ],
+   "level": 2,
+   "tip": "ikura (how much) + desu ka. For 'how many' use ikutsu."
+  },
+  {
+   "id": "sh-02",
+   "ja": "高い",
+   "romaji": "takai",
+   "en": "Expensive (also: tall, high)",
+   "examples": [
+    {
+     "ja": "ちょっと高いですね。",
+     "romaji": "chotto takai desu ne.",
+     "en": "That's a bit expensive."
+    }
+   ],
+   "level": 1,
+   "tip": "i-adjective: takai, takakunai, takakatta. Means both expensive and tall; context decides."
+  },
+  {
+   "id": "sh-03",
+   "ja": "安い",
+   "romaji": "yasui",
+   "en": "Cheap",
+   "level": 1,
+   "tip": "i-adjective. Also a suffix meaning 'easy to': wakariyasui = easy to understand."
+  },
+  {
+   "id": "sh-04",
+   "ja": "袋はいりません",
+   "romaji": "fukuro wa irimasen",
+   "en": "I don't need a bag",
+   "level": 2,
+   "tip": "iru (to need) + polite negative. irimasen = don't need. The standard polite refusal, with wa marking what is refused."
+  },
+  {
+   "id": "sh-05",
+   "ja": "袋をお願いします",
+   "romaji": "fukuro o onegaishimasu",
+   "en": "A bag, please",
+   "accept": [
+    "fukuro wo onegaishimasu"
+   ],
+   "level": 2,
+   "tip": "Same request pattern as omizu o kudasai. fukuro covers the small plastic bag you now pay a few yen for."
+  },
+  {
+   "id": "sh-06",
+   "ja": "温めますか",
+   "romaji": "atatamemasu ka",
+   "en": "Shall I heat it up? (konbini staff)",
+   "level": 1,
+   "tip": "atatameru (to warm up) in polite form + ka. Staff ask this for bento. Reply hai onegaishimasu or daijoubu desu."
+  },
+  {
+   "id": "sh-07",
+   "ja": "レシートはいりません",
+   "romaji": "reshiito wa irimasen",
+   "en": "I don't need a receipt",
+   "level": 2,
+   "tip": "Same irimasen pattern. reshiito is a loanword; ryoushuusho is the formal receipt for expenses."
+  },
+  {
+   "id": "sh-08",
+   "ja": "ポイントカードはお持ちですか",
+   "romaji": "pointo kaado wa omochi desu ka",
+   "en": "Do you have a points card? (staff)",
+   "level": 3,
+   "tip": "o- + mochi (have) + desu ka is the honorific 'do you have'. Staff-speak you need to recognise, not produce. Answer nai desu or daijoubu desu."
+  },
+  {
+   "id": "sh-09",
+   "ja": "ありません",
+   "romaji": "arimasen",
+   "en": "I don't have one / There isn't any",
+   "level": 1,
+   "tip": "Polite negative of aru (to exist, to have). Casual: nai. nai desu is a common softer version."
+  },
+  {
+   "id": "sh-10",
+   "ja": "現金で",
+   "romaji": "genkin de",
+   "en": "In cash",
+   "examples": [
+    {
+     "ja": "現金でお願いします。",
+     "romaji": "genkin de onegaishimasu.",
+     "en": "Cash, please."
+    }
+   ],
+   "level": 1,
+   "tip": "de = by means of. genkin de, kaado de, basu de (by bus). One particle, many uses."
+  },
+  {
+   "id": "sh-11",
+   "ja": "カードで",
+   "romaji": "kaado de",
+   "en": "By card",
+   "level": 1,
+   "tip": "Same de. Say it as the answer to oshiharai wa? (payment?)."
+  },
+  {
+   "id": "sh-12",
+   "ja": "これは何ですか",
+   "romaji": "kore wa nan desu ka",
+   "en": "What is this?",
+   "level": 3,
+   "tip": "kore (this) + wa + nan (what) + desu ka. nan before d, t, n sounds; nani elsewhere (nani o?)."
+  },
+  {
+   "id": "sh-13",
+   "ja": "試着できますか",
+   "romaji": "shichaku dekimasu ka",
+   "en": "Can I try it on?",
+   "level": 2,
+   "tip": "shichaku (trying on) + dekimasu (can do) + ka. noun + dekimasu ka = can I do X."
+  },
+  {
+   "id": "sh-14",
+   "ja": "もっと大きいのはありますか",
+   "romaji": "motto ookii no wa arimasu ka",
+   "en": "Do you have a bigger one?",
+   "level": 3,
+   "tip": "motto (more) + ookii (big) + no (one, stands in for the noun) + wa arimasu ka. no replaces a noun you have already named."
+  },
+  {
+   "id": "sh-15",
+   "ja": "見ているだけです",
+   "romaji": "mite iru dake desu",
+   "en": "Just looking",
+   "level": 2,
+   "tip": "mite iru = -te form + iru, the 'am doing' form. dake = only. Polite brush-off for staff."
+  },
+  {
+   "id": "sh-16",
+   "ja": "免税できますか",
+   "romaji": "menzei dekimasu ka",
+   "en": "Can I get tax-free?",
+   "level": 2,
+   "tip": "men (exempt) + zei (tax). Same dekimasu ka pattern. You will need your passport."
+  },
+  {
+   "id": "sh-17",
+   "ja": "円",
+   "romaji": "en",
+   "en": "Yen",
+   "examples": [
+    {
+     "ja": "五百円です。",
+     "romaji": "gohyaku en desu.",
+     "en": "That's 500 yen."
+    }
+   ],
+   "level": 1,
+   "tip": "The yen. Number first: gohyaku en. It is 'yen' in English and 'en' in Japanese."
+  },
+  {
+   "id": "sh-18",
+   "ja": "お釣り",
+   "romaji": "otsuri",
+   "en": "Change (money back)",
+   "level": 1,
+   "tip": "o- + tsuri. Staff say otsuri desu while handing it back."
+  }
+ ]
+}

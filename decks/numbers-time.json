@@ -1,0 +1,257 @@
+{
+ "id": "numbers-time",
+ "name": "Numbers & time",
+ "description": "Counting, prices, hours, and days. Hear them fast at the register.",
+ "cards": [
+  {
+   "id": "nt-01",
+   "ja": "一",
+   "romaji": "ichi",
+   "en": "One (1)",
+   "level": 1,
+   "tip": "Sino-Japanese number, used for counting, prices, time. Changes sound before some counters: ippun, issai."
+  },
+  {
+   "id": "nt-02",
+   "ja": "二",
+   "romaji": "ni",
+   "en": "Two (2)",
+   "level": 1,
+   "tip": "Two. Also the particle ni (to, at); context separates them."
+  },
+  {
+   "id": "nt-03",
+   "ja": "三",
+   "romaji": "san",
+   "en": "Three (3)",
+   "level": 1,
+   "tip": "Three. Also the polite name suffix (Tanaka-san). sanbyaku = 300 with a sound change."
+  },
+  {
+   "id": "nt-04",
+   "ja": "四",
+   "romaji": "yon",
+   "en": "Four (4)",
+   "accept": [
+    "shi"
+   ],
+   "level": 1,
+   "tip": "yon and shi both mean four; shi also means death, so yon is preferred in most counting."
+  },
+  {
+   "id": "nt-05",
+   "ja": "五",
+   "romaji": "go",
+   "en": "Five (5)",
+   "level": 1,
+   "tip": "Five. Also the honorific prefix on some words (gohan, gochisou). Context decides."
+  },
+  {
+   "id": "nt-06",
+   "ja": "六",
+   "romaji": "roku",
+   "en": "Six (6)",
+   "level": 1,
+   "tip": "Six. roppyaku = 600, rokusen = 6000."
+  },
+  {
+   "id": "nt-07",
+   "ja": "七",
+   "romaji": "nana",
+   "en": "Seven (7)",
+   "accept": [
+    "shichi"
+   ],
+   "level": 1,
+   "tip": "nana and shichi both mean seven; nana is clearer in speech because shichi sounds like ichi."
+  },
+  {
+   "id": "nt-08",
+   "ja": "八",
+   "romaji": "hachi",
+   "en": "Eight (8)",
+   "level": 1,
+   "tip": "Eight. happyaku = 800, hassen = 8000. The small tsu stop appears before h and p sounds."
+  },
+  {
+   "id": "nt-09",
+   "ja": "九",
+   "romaji": "kyuu",
+   "en": "Nine (9)",
+   "accept": [
+    "ku"
+   ],
+   "level": 1,
+   "tip": "kyuu and ku both mean nine; kyuu is standard, ku shows up in time (kuji = 9 o'clock)."
+  },
+  {
+   "id": "nt-10",
+   "ja": "十",
+   "romaji": "juu",
+   "en": "Ten (10)",
+   "level": 1,
+   "tip": "Ten. Tens stack: nijuu = 20, sanjuu = 30. juuichi = 11."
+  },
+  {
+   "id": "nt-11",
+   "ja": "百",
+   "romaji": "hyaku",
+   "en": "Hundred (100)",
+   "examples": [
+    {
+     "ja": "三百円です。",
+     "romaji": "sanbyaku en desu.",
+     "en": "300 yen."
+    }
+   ],
+   "level": 1,
+   "tip": "Hundred. Sound changes: sanbyaku (300), roppyaku (600), happyaku (800)."
+  },
+  {
+   "id": "nt-12",
+   "ja": "千",
+   "romaji": "sen",
+   "en": "Thousand (1,000)",
+   "examples": [
+    {
+     "ja": "千二百円です。",
+     "romaji": "sen nihyaku en desu.",
+     "en": "1,200 yen."
+    }
+   ],
+   "level": 1,
+   "tip": "Thousand. sanzen (3000), hassen (8000). 1000 is just sen, not issen."
+  },
+  {
+   "id": "nt-13",
+   "ja": "万",
+   "romaji": "man",
+   "en": "Ten thousand (10,000)",
+   "examples": [
+    {
+     "ja": "一万円札しかありません。",
+     "romaji": "ichiman en satsu shika arimasen.",
+     "en": "I only have a 10,000 yen note."
+    }
+   ],
+   "level": 1,
+   "tip": "Ten thousand is the big unit: ichiman (10,000), juuman (100,000), hyakuman (one million). Prices are quoted in man."
+  },
+  {
+   "id": "nt-14",
+   "ja": "一つ",
+   "romaji": "hitotsu",
+   "en": "One (thing, generic counter)",
+   "examples": [
+    {
+     "ja": "これを一つください。",
+     "romaji": "kore o hitotsu kudasai.",
+     "en": "One of this, please."
+    }
+   ],
+   "level": 1,
+   "tip": "Native Japanese counting (hitotsu to tou) counts generic things when there is no special counter. It follows the noun: kore o hitotsu."
+  },
+  {
+   "id": "nt-15",
+   "ja": "二つ",
+   "romaji": "futatsu",
+   "en": "Two (things)",
+   "level": 1,
+   "tip": "Two things. Compare futari (two people) and ni (the bare number)."
+  },
+  {
+   "id": "nt-16",
+   "ja": "三つ",
+   "romaji": "mittsu",
+   "en": "Three (things)",
+   "level": 1,
+   "tip": "Three things. Note the stop: mit-tsu."
+  },
+  {
+   "id": "nt-17",
+   "ja": "何時ですか",
+   "romaji": "nanji desu ka",
+   "en": "What time is it?",
+   "level": 2,
+   "tip": "nan (what) + ji (hour counter). Answer: number + ji. Minutes use fun or pun."
+  },
+  {
+   "id": "nt-18",
+   "ja": "三時",
+   "romaji": "sanji",
+   "en": "Three o'clock",
+   "examples": [
+    {
+     "ja": "三時に会いましょう。",
+     "romaji": "sanji ni aimashou.",
+     "en": "Let's meet at three."
+    }
+   ],
+   "level": 1,
+   "tip": "san + ji = 3 o'clock. Four is yoji (not yonji), seven is shichiji, nine is kuji."
+  },
+  {
+   "id": "nt-19",
+   "ja": "今日",
+   "romaji": "kyou",
+   "en": "Today",
+   "level": 1,
+   "tip": "Today. Time nouns stand alone, no particle needed: kyou ikimasu."
+  },
+  {
+   "id": "nt-20",
+   "ja": "明日",
+   "romaji": "ashita",
+   "en": "Tomorrow",
+   "examples": [
+    {
+     "ja": "明日は何をしますか。",
+     "romaji": "ashita wa nani o shimasu ka.",
+     "en": "What are you doing tomorrow?"
+    }
+   ],
+   "level": 1,
+   "tip": "Tomorrow. asatte = the day after tomorrow. ashita no asa = tomorrow morning."
+  },
+  {
+   "id": "nt-21",
+   "ja": "昨日",
+   "romaji": "kinou",
+   "en": "Yesterday",
+   "level": 1,
+   "tip": "Yesterday, long o: kinou. Pairs with past tense: kinou ikimashita."
+  },
+  {
+   "id": "nt-22",
+   "ja": "今",
+   "romaji": "ima",
+   "en": "Now",
+   "examples": [
+    {
+     "ja": "今、何時ですか。",
+     "romaji": "ima, nanji desu ka.",
+     "en": "What time is it now?"
+    }
+   ],
+   "level": 1,
+   "tip": "Now. ima kara = from now. Adverb, no particle."
+  },
+  {
+   "id": "nt-23",
+   "ja": "後で",
+   "romaji": "ato de",
+   "en": "Later",
+   "level": 1,
+   "tip": "ato (after) + de. ato de = later. X no ato de = after X."
+  },
+  {
+   "id": "nt-24",
+   "ja": "何時に閉まりますか",
+   "romaji": "nanji ni shimarimasu ka",
+   "en": "What time do you close?",
+   "level": 2,
+   "tip": "nanji + ni (at, for clock times) + shimarimasu (close, intransitive) + ka. Opening is akimasu."
+  }
+ ]
+}

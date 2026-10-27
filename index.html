@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hanasu Cards</title>
+<meta name="description" content="Speaking-first Japanese flash cards. Production, not recognition.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <button class="brand" data-nav="home" aria-label="Home">話す<span>Hanasu</span></button>
+  <nav>
+    <button data-nav="home">Study</button>
+    <button data-nav="group">Group</button>
+    <button data-nav="kana">Kana</button>
+    <button data-nav="browse">Decks</button>
+    <button data-nav="settings">Settings</button>
+  </nav>
+</header>
+
+<main id="view" class="view"></main>
+
+<template id="t-home">
+  <section class="panel">
+    <h1>What are we drilling?</h1>
+    <p class="muted">Pick decks. Cards are mixed across decks so topic never gives the answer away.</p>
+    <div class="deck-grid" data-deck-grid></div>
+    <h2>Level</h2>
+    <div class="levels" data-levels></div>
+    <div class="stats" data-stats></div>
+    <h2>Mode</h2>
+    <div class="modes">
+      <button class="mode" data-start="speak">
+        <strong>Speak</strong>
+        <span>See English. Say it out loud, then type the romaji. No options to eliminate.</span>
+      </button>
+      <button class="mode" data-start="listen">
+        <strong>Listen</strong>
+        <span>Hear Japanese only. Type what you heard, and commit to the meaning before the reveal.</span>
+      </button>
+    </div>
+  </section>
+</template>
+
+<template id="t-study">
+  <section class="panel study">
+    <div class="progressbar"><div data-bar></div></div>
+    <div class="study-meta"><span data-counter></span><span data-mode-label></span></div>
+    <div class="card" data-card>
+      <div class="prompt" data-prompt></div>
+      <div class="audio-row" data-audio-row hidden>
+        <button data-play>▶ Play</button>
+        <button data-play-slow>▶ Slow</button>
+        <button data-play-syl>▶ Syllables</button>
+      </div>
+      <form data-answer-form class="answer">
+        <label class="field">
+          <span data-input-label>Type the romaji</span>
+          <input data-input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="latin" placeholder="e.g. sumimasen">
+        </label>
+        <label class="field" data-meaning-field hidden>
+          <span>What does it mean? <em class="muted">Optional. Blank is neutral; wrong counts.</em></span>
+          <input data-meaning type="text" autocomplete="off" autocapitalize="off" placeholder="e.g. excuse me">
+        </label>
+        <fieldset class="confidence">
+          <legend data-conf-label>Before you check: how sure are you?</legend>
+          <label><input type="radio" name="conf" value="sure"><span>Sure</span></label>
+          <label><input type="radio" name="conf" value="kinda"><span>Kinda</span></label>
+          <label><input type="radio" name="conf" value="none"><span>No idea</span></label>
+        </fieldset>
+        <button type="submit" class="primary" data-submit disabled>Check</button>
+      </form>
+      <div class="result" data-result hidden>
+        <div class="verdict" data-verdict></div>
+        <div class="reveal">
+          <div class="ja" data-ja></div>
+          <div class="romaji" data-romaji></div>
+          <div class="morae" data-morae></div>
+          <div class="en" data-en></div>
+          <div class="notes" data-notes></div>
+          <div class="example" data-example></div>
+          <div class="tip" data-tip hidden><span class="tip-label">How it works</span><span data-tip-text></span></div>
+        </div>
+        <div class="audio-row">
+          <button data-play>▶ Play</button>
+          <button data-play-slow>▶ Slow</button>
+        <button data-play-syl>▶ Syllables</button>
+        </div>
+        <button class="primary" data-next>Next</button>
+      </div>
+    </div>
+    <button class="link" data-nav="home">End session</button>
+  </section>
+</template>
+
+<template id="t-summary">
+  <section class="panel">
+    <h1>Session done</h1>
+    <div class="stats" data-summary></div>
+    <div class="missed" data-missed></div>
+    <button class="primary" data-nav="home">Back</button>
+  </section>
+</template>
+
+<template id="t-group">
+  <section class="panel">
+    <h1>Group</h1>
+    <p class="muted">One phone is the host. Host reads the prompt, everyone answers out loud, host grades. Nothing to tap through, nothing to eliminate.</p>
+    <form data-group-form>
+      <label class="field"><span>Players, one per line</span>
+        <textarea data-players rows="4" placeholder="Ben&#10;Sam&#10;Yuki"></textarea></label>
+      <fieldset class="confidence">
+        <legend>Direction</legend>
+        <label><input type="radio" name="gdir" value="speak" checked><span>English → say it in Japanese</span></label>
+        <label><input type="radio" name="gdir" value="listen"><span>Hear Japanese → say the meaning</span></label>
+      </fieldset>
+      <div class="deck-grid" data-deck-grid></div>
+      <div class="levels" data-levels></div>
+      <button class="primary" type="submit">Start round</button>
+    </form>
+  </section>
+</template>
+
+<template id="t-group-play">
+  <section class="panel study">
+    <div class="study-meta"><span data-counter></span><span>Group</span></div>
+    <div class="card">
+      <div class="prompt" data-prompt></div>
+      <div class="audio-row" data-audio-row hidden>
+        <button data-play>▶ Play</button>
+        <button data-play-slow>▶ Slow</button>
+        <button data-play-syl>▶ Syllables</button>
+      </div>
+      <button class="primary" data-reveal>Reveal</button>
+      <div class="result" data-result hidden>
+        <div class="reveal">
+          <div class="ja" data-ja></div>
+          <div class="romaji" data-romaji></div>
+          <div class="morae" data-morae></div>
+          <div class="en" data-en></div>
+          <div class="notes" data-notes></div>
+          <div class="tip" data-tip hidden><span class="tip-label">How it works</span><span data-tip-text></span></div>
+        </div>
+        <div class="players" data-players></div>
+        <button class="primary" data-next>Next</button>
+      </div>
+    </div>
+    <div class="scoreboard" data-scoreboard></div>
+    <button class="link" data-nav="group">End round</button>
+  </section>
+</template>
+
+<template id="t-kana">
+  <section class="panel">
+    <div class="tabs">
+      <button type="button" data-tab="hira">Hiragana</button>
+      <button type="button" data-tab="kata">Katakana</button>
+      <button type="button" data-tab="kanji">Kanji</button>
+    </div>
+    <div data-kana-body></div>
+  </section>
+</template>
+
+<template id="t-kana-play">
+  <section class="panel study">
+    <div class="progressbar"><div data-bar></div></div>
+    <div class="study-meta"><span data-counter></span><span data-mode-label></span></div>
+    <div class="card">
+      <div class="prompt" data-prompt></div>
+      <div data-answer>
+        <div data-audio-row hidden></div>
+        <form data-read-form class="answer" hidden>
+          <label class="field"><span>Type the romaji</span>
+            <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="latin"></label>
+          <button type="submit" class="primary">Check</button>
+        </form>
+        <div class="kana-choices" data-choices hidden></div>
+      </div>
+      <div class="result" data-result hidden>
+        <div class="verdict" data-verdict></div>
+        <div class="reveal">
+          <div class="ja" data-ja></div>
+          <div class="romaji" data-romaji></div>
+          <div data-extra></div>
+        </div>
+        <div data-audio-result></div>
+        <button class="primary" data-next>Next</button>
+      </div>
+    </div>
+    <button class="link" data-nav="kana">End session</button>
+  </section>
+</template>
+
+<template id="t-browse">
+  <section class="panel">
+    <h1>Decks</h1>
+    <p class="muted">Decks are plain JSON in <code>decks/</code>. Edit or add your own; list them in <code>decks/index.json</code>.</p>
+    <div data-browse></div>
+  </section>
+</template>
+
+<template id="t-settings">
+  <section class="panel">
+    <h1>Settings</h1>
+    <label class="field"><span>Speech rate (0.5 to 1.2)</span>
+      <input type="number" min="0.5" max="1.2" step="0.05" data-set="rate"></label>
+    <label class="field check"><input type="checkbox" data-set="autoplay"><span>Auto-play Japanese audio on reveal</span></label>
+    <label class="field check"><input type="checkbox" data-set="macron"><span>Show long vowels with macrons (ō, ū), Duolingo style. Typing is unaffected: ou, oo, ō, or a single o all pass.</span></label>
+    <h2>Progress</h2>
+    <div class="row">
+      <button data-export>Export progress</button>
+      <label class="btn">Import <input type="file" accept="application/json" data-import hidden></label>
+      <button class="danger" data-reset>Reset all progress</button>
+    </div>
+    <p class="muted small" data-voice-info></p>
+  </section>
+</template>
+
+<script src="app.js"></script>
+<script src="kanji-data.js"></script>
+<script src="kana.js"></script>
+</body>
+</html>

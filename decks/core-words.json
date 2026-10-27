@@ -1,0 +1,406 @@
+{
+ "id": "core-words",
+ "name": "Core words",
+ "description": "Single words you can point with. Nouns, adjectives, question words, and a few verbs.",
+ "cards": [
+  {
+   "id": "cw-01",
+   "level": 1,
+   "ja": "水",
+   "romaji": "mizu",
+   "en": "Water",
+   "examples": [
+    {
+     "ja": "お水をください。",
+     "romaji": "omizu o kudasai.",
+     "en": "Water, please."
+    }
+   ],
+   "tip": "Noun. The o- prefix makes it polite in requests: omizu. Cold water by default; hot water is oyu."
+  },
+  {
+   "id": "cw-02",
+   "level": 1,
+   "ja": "お茶",
+   "romaji": "ocha",
+   "en": "Tea (green tea)",
+   "tip": "The o- is baked in; nobody says cha alone. Green tea unless specified; koucha is black tea."
+  },
+  {
+   "id": "cw-03",
+   "level": 1,
+   "ja": "コーヒー",
+   "romaji": "koohii",
+   "en": "Coffee",
+   "tip": "Loanword in katakana. Long o and long i: koo-hii. aisu koohii = iced coffee."
+  },
+  {
+   "id": "cw-04",
+   "level": 1,
+   "ja": "ビール",
+   "romaji": "biiru",
+   "en": "Beer",
+   "tip": "Loanword. nama biiru = draft beer. Long i."
+  },
+  {
+   "id": "cw-05",
+   "level": 1,
+   "ja": "ご飯",
+   "romaji": "gohan",
+   "en": "Rice / a meal",
+   "tip": "go- is an honorific prefix fused to han (cooked rice). Also means a meal: asagohan is breakfast."
+  },
+  {
+   "id": "cw-06",
+   "level": 1,
+   "ja": "肉",
+   "romaji": "niku",
+   "en": "Meat",
+   "tip": "Noun. gyuuniku (beef), butaniku (pork), toriniku (chicken) all end in niku."
+  },
+  {
+   "id": "cw-07",
+   "level": 1,
+   "ja": "魚",
+   "romaji": "sakana",
+   "en": "Fish",
+   "tip": "Fish, both the animal and the food. Japanese nouns have no plural."
+  },
+  {
+   "id": "cw-08",
+   "level": 1,
+   "ja": "野菜",
+   "romaji": "yasai",
+   "en": "Vegetables",
+   "tip": "Vegetables. No plural marking; yasai covers one or many."
+  },
+  {
+   "id": "cw-09",
+   "level": 1,
+   "ja": "駅",
+   "romaji": "eki",
+   "en": "Station",
+   "tip": "Train station. Name + eki: Shinjuku eki. Bus terminals are not eki."
+  },
+  {
+   "id": "cw-10",
+   "level": 1,
+   "ja": "電車",
+   "romaji": "densha",
+   "en": "Train",
+   "tip": "den (electric) + sha (vehicle). The subway is chikatetsu; shinkansen is its own word."
+  },
+  {
+   "id": "cw-11",
+   "level": 1,
+   "ja": "バス",
+   "romaji": "basu",
+   "en": "Bus",
+   "tip": "Loanword in katakana. Also 'bath'; context decides."
+  },
+  {
+   "id": "cw-12",
+   "level": 1,
+   "ja": "タクシー",
+   "romaji": "takushii",
+   "en": "Taxi",
+   "tip": "Loanword. Taxi doors open automatically; the driver does it."
+  },
+  {
+   "id": "cw-13",
+   "level": 1,
+   "ja": "ホテル",
+   "romaji": "hoteru",
+   "en": "Hotel",
+   "tip": "Loanword. A ryokan is a traditional inn, a different word."
+  },
+  {
+   "id": "cw-14",
+   "level": 1,
+   "ja": "コンビニ",
+   "romaji": "konbini",
+   "en": "Convenience store",
+   "tip": "Clipped from 'convenience store'. Japanese shortens long loanwords freely."
+  },
+  {
+   "id": "cw-15",
+   "level": 1,
+   "ja": "トイレ",
+   "romaji": "toire",
+   "en": "Toilet",
+   "tip": "From 'toilet'. otearai (o- + te + arai, hand washing) is the politer word on signs."
+  },
+  {
+   "id": "cw-16",
+   "level": 1,
+   "ja": "お金",
+   "romaji": "okane",
+   "en": "Money",
+   "tip": "o- + kane (metal, money). The o- is nearly always kept on this word."
+  },
+  {
+   "id": "cw-17",
+   "level": 1,
+   "ja": "カード",
+   "romaji": "kaado",
+   "en": "Card (credit card)",
+   "tip": "Loanword. kurejitto kaado in full; kaado alone is understood."
+  },
+  {
+   "id": "cw-18",
+   "level": 1,
+   "ja": "現金",
+   "romaji": "genkin",
+   "en": "Cash",
+   "tip": "gen (present) + kin (money). genkin de = in cash."
+  },
+  {
+   "id": "cw-19",
+   "level": 1,
+   "ja": "袋",
+   "romaji": "fukuro",
+   "en": "Bag (plastic bag)",
+   "tip": "A bag or sack. A handbag or backpack is kaban or baggu."
+  },
+  {
+   "id": "cw-20",
+   "level": 1,
+   "ja": "私",
+   "romaji": "watashi",
+   "en": "I / me",
+   "tip": "I, me. Neutral and safe in any setting. Men casually use boku or ore. Dropped when obvious from context."
+  },
+  {
+   "id": "cw-21",
+   "level": 1,
+   "ja": "友達",
+   "romaji": "tomodachi",
+   "en": "Friend",
+   "tip": "Friend or friends. tomodachi to = with friends."
+  },
+  {
+   "id": "cw-22",
+   "level": 1,
+   "ja": "何",
+   "romaji": "nani",
+   "en": "What",
+   "accept": [
+    "nan"
+   ],
+   "tip": "What. Becomes nan before desu, to, no: nan desu ka. nani o = what (as an object)."
+  },
+  {
+   "id": "cw-23",
+   "level": 1,
+   "ja": "どこ",
+   "romaji": "doko",
+   "en": "Where",
+   "tip": "Where. The do- member of the koko, soko, asoko set."
+  },
+  {
+   "id": "cw-24",
+   "level": 1,
+   "ja": "いつ",
+   "romaji": "itsu",
+   "en": "When",
+   "tip": "When. Takes no particle: itsu ikimasu ka."
+  },
+  {
+   "id": "cw-25",
+   "level": 1,
+   "ja": "誰",
+   "romaji": "dare",
+   "en": "Who",
+   "tip": "Who. Polite: donata."
+  },
+  {
+   "id": "cw-26",
+   "level": 1,
+   "ja": "いくら",
+   "romaji": "ikura",
+   "en": "How much",
+   "tip": "How much, for price. ikutsu is how many, or how old."
+  },
+  {
+   "id": "cw-27",
+   "level": 1,
+   "ja": "これ",
+   "romaji": "kore",
+   "en": "This (thing)",
+   "tip": "This thing, near me. kore o kudasai works for anything you can point at."
+  },
+  {
+   "id": "cw-28",
+   "level": 1,
+   "ja": "それ",
+   "romaji": "sore",
+   "en": "That (thing near you)",
+   "tip": "That thing, near you. sore wa nan desu ka."
+  },
+  {
+   "id": "cw-29",
+   "level": 1,
+   "ja": "あれ",
+   "romaji": "are",
+   "en": "That (thing over there)",
+   "tip": "That thing over there, far from both of you. Said ah-reh, not like English 'are'."
+  },
+  {
+   "id": "cw-30",
+   "level": 1,
+   "ja": "大きい",
+   "romaji": "ookii",
+   "en": "Big",
+   "tip": "i-adjective with a long o. Before a noun: ookii kaban. Opposite: chiisai."
+  },
+  {
+   "id": "cw-31",
+   "level": 1,
+   "ja": "小さい",
+   "romaji": "chiisai",
+   "en": "Small",
+   "tip": "i-adjective with a long i. chiisakunai = not small."
+  },
+  {
+   "id": "cw-32",
+   "level": 1,
+   "ja": "暑い",
+   "romaji": "atsui",
+   "en": "Hot (weather)",
+   "tip": "Hot: weather and temperature. atsui also means thick, with a different kanji."
+  },
+  {
+   "id": "cw-33",
+   "level": 1,
+   "ja": "寒い",
+   "romaji": "samui",
+   "en": "Cold (weather)",
+   "tip": "Cold weather, or feeling cold. Cold to the touch is tsumetai."
+  },
+  {
+   "id": "cw-34",
+   "level": 1,
+   "ja": "いい",
+   "romaji": "ii",
+   "en": "Good",
+   "tip": "Good. Irregular: past and negative use yo-: yokatta (was good), yokunai (not good)."
+  },
+  {
+   "id": "cw-35",
+   "level": 1,
+   "ja": "悪い",
+   "romaji": "warui",
+   "en": "Bad",
+   "tip": "Bad. kibun ga warui = feel sick. warui ne is a casual 'my bad'."
+  },
+  {
+   "id": "cw-36",
+   "level": 1,
+   "ja": "好き",
+   "romaji": "suki",
+   "en": "Like (I like it)",
+   "examples": [
+    {
+     "ja": "ラーメンが好きです。",
+     "romaji": "raamen ga suki desu.",
+     "en": "I like ramen."
+    }
+   ],
+   "tip": "na-adjective, so 'I like X' is X ga suki desu, with ga. daisuki = love it."
+  },
+  {
+   "id": "cw-37",
+   "level": 1,
+   "ja": "ちょっと",
+   "romaji": "chotto",
+   "en": "A little / a bit",
+   "tip": "A little. Also the universal softener: chotto... on its own means 'that's a bit (difficult)', a polite no."
+  },
+  {
+   "id": "cw-38",
+   "level": 1,
+   "ja": "もっと",
+   "romaji": "motto",
+   "en": "More",
+   "tip": "More. motto yukkuri = more slowly. Compare mou (again, another)."
+  },
+  {
+   "id": "cw-39",
+   "level": 1,
+   "ja": "行きます",
+   "romaji": "ikimasu",
+   "en": "Go (I go / will go)",
+   "examples": [
+    {
+     "ja": "京都に行きます。",
+     "romaji": "kyouto ni ikimasu.",
+     "en": "I'm going to Kyoto."
+    }
+   ],
+   "tip": "Polite present of iku (go). Also the future: Japanese has no separate future tense. Past: ikimashita."
+  },
+  {
+   "id": "cw-40",
+   "level": 1,
+   "ja": "食べます",
+   "romaji": "tabemasu",
+   "en": "Eat",
+   "tip": "Polite form of taberu. The -masu ending is the polite present/future on every verb. Past: tabemashita. Negative: tabemasen."
+  },
+  {
+   "id": "cw-41",
+   "level": 1,
+   "ja": "飲みます",
+   "romaji": "nomimasu",
+   "en": "Drink",
+   "tip": "Polite form of nomu (drink). Also used for taking medicine: kusuri o nomimasu."
+  },
+  {
+   "id": "cw-42",
+   "level": 1,
+   "ja": "買います",
+   "romaji": "kaimasu",
+   "en": "Buy",
+   "tip": "Polite form of kau (buy). kaimono = shopping, the noun."
+  },
+  {
+   "id": "cw-43",
+   "level": 1,
+   "ja": "見ます",
+   "romaji": "mimasu",
+   "en": "See / look / watch",
+   "tip": "Polite form of miru: see, look, watch. mite kudasai = please look."
+  },
+  {
+   "id": "cw-44",
+   "level": 1,
+   "ja": "あります",
+   "romaji": "arimasu",
+   "en": "There is / I have (things)",
+   "tip": "Existence or possession for things. Negative: arimasen. For people and animals use imasu."
+  },
+  {
+   "id": "cw-45",
+   "level": 1,
+   "ja": "ください",
+   "romaji": "kudasai",
+   "en": "Please give me (after a noun)",
+   "examples": [
+    {
+     "ja": "これをください。",
+     "romaji": "kore o kudasai.",
+     "en": "This, please."
+    }
+   ],
+   "tip": "Please give me. After a noun (+ o) it asks for a thing; after a -te form it asks for an action."
+  },
+  {
+   "id": "cw-46",
+   "level": 1,
+   "ja": "ですか",
+   "romaji": "desu ka",
+   "en": "Is it? (question ending)",
+   "tip": "desu (is, polite) + ka (question). Noun + desu ka asks 'is it X?'. No rising intonation needed; ka does the work."
+  }
+ ]
+}

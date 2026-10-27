@@ -1,0 +1,231 @@
+{
+ "id": "restaurant",
+ "name": "Restaurant & food",
+ "description": "Ordering, paying, allergies, and the words you hear from staff.",
+ "cards": [
+  {
+   "id": "re-01",
+   "ja": "いらっしゃいませ",
+   "romaji": "irasshaimase",
+   "en": "Welcome (said by staff when you enter)",
+   "level": 1,
+   "tip": "Honorific form of irassharu (to come). Staff only. You never say it back; a nod is right."
+  },
+  {
+   "id": "re-02",
+   "ja": "何名様ですか",
+   "romaji": "nanmeisama desu ka",
+   "en": "How many people? (staff asking)",
+   "accept": [
+    "nanmei sama desu ka"
+   ],
+   "level": 2,
+   "tip": "nan (how many) + mei (polite counter for people) + sama (honorific). Answer with hitori, futari, sannin."
+  },
+  {
+   "id": "re-03",
+   "ja": "二人です",
+   "romaji": "futari desu",
+   "en": "Two people",
+   "examples": [
+    {
+     "ja": "二人です。禁煙席でお願いします。",
+     "romaji": "futari desu. kin'enseki de onegaishimasu.",
+     "en": "Two people. Non-smoking, please."
+    }
+   ],
+   "level": 1,
+   "tip": "hitori and futari are irregular people counters; from three it is number + nin (sannin, yonin). desu completes it politely."
+  },
+  {
+   "id": "re-04",
+   "ja": "一人です",
+   "romaji": "hitori desu",
+   "en": "One person (just me)",
+   "level": 1,
+   "tip": "hitori = one person. hitori de = alone, by myself."
+  },
+  {
+   "id": "re-05",
+   "ja": "メニューをお願いします",
+   "romaji": "menyuu o onegaishimasu",
+   "en": "Menu, please",
+   "accept": [
+    "menyuu wo onegaishimasu",
+    "menyu o onegaishimasu"
+   ],
+   "level": 2,
+   "tip": "noun + o + onegaishimasu. o marks the thing requested; with onegaishimasu it is often dropped: menyuu onegaishimasu."
+  },
+  {
+   "id": "re-06",
+   "ja": "おすすめは何ですか",
+   "romaji": "osusume wa nan desu ka",
+   "en": "What do you recommend?",
+   "level": 3,
+   "tip": "o- + susume (recommendation, from susumeru). nan is 'what' before desu; nani elsewhere."
+  },
+  {
+   "id": "re-07",
+   "ja": "これをください",
+   "romaji": "kore o kudasai",
+   "en": "This one, please (pointing)",
+   "accept": [
+    "kore wo kudasai"
+   ],
+   "examples": [
+    {
+     "ja": "これとこれをください。",
+     "romaji": "kore to kore o kudasai.",
+     "en": "This and this, please."
+    },
+    {
+     "ja": "これを二つください。",
+     "romaji": "kore o futatsu kudasai.",
+     "en": "Two of this, please."
+    }
+   ],
+   "level": 2,
+   "tip": "kore (this) + o (object particle) + kudasai (please give). kudasai is a touch more direct than onegaishimasu; both are polite."
+  },
+  {
+   "id": "re-08",
+   "ja": "お水をください",
+   "romaji": "omizu o kudasai",
+   "en": "Water, please",
+   "accept": [
+    "omizu wo kudasai",
+    "mizu o kudasai"
+   ],
+   "level": 2,
+   "tip": "The o- prefix makes mizu politer; it shows up on many food words (ocha, osake, okane). Both omizu and mizu are fine."
+  },
+  {
+   "id": "re-09",
+   "ja": "ビールを一つ",
+   "romaji": "biiru o hitotsu",
+   "en": "One beer",
+   "accept": [
+    "biiru wo hitotsu"
+   ],
+   "level": 2,
+   "tip": "Counter goes after the particle: thing + o + number. hitotsu, futatsu, mittsu count generic objects. Add kudasai to finish."
+  },
+  {
+   "id": "re-10",
+   "ja": "いただきます",
+   "romaji": "itadakimasu",
+   "en": "Said before eating (thanks for the food)",
+   "level": 1,
+   "tip": "Humble form of 'receive'. Said once before eating, often with hands together. Also when accepting a gift."
+  },
+  {
+   "id": "re-11",
+   "ja": "ごちそうさまでした",
+   "romaji": "gochisousama deshita",
+   "en": "Said after eating / when leaving (thanks for the meal)",
+   "examples": [
+    {
+     "ja": "ごちそうさまでした。美味しかったです。",
+     "romaji": "gochisousama deshita. oishikatta desu.",
+     "en": "Thanks for the meal. It was delicious."
+    }
+   ],
+   "level": 1,
+   "tip": "gochisou (feast) + sama (honorific) + deshita (past of desu). Past tense because the meal is over. Casual: gochisousama."
+  },
+  {
+   "id": "re-12",
+   "ja": "美味しい",
+   "romaji": "oishii",
+   "en": "Delicious",
+   "examples": [
+    {
+     "ja": "これ、美味しいですね。",
+     "romaji": "kore, oishii desu ne.",
+     "en": "This is delicious, isn't it."
+    }
+   ],
+   "level": 1,
+   "tip": "i-adjective. Polite: oishii desu. Past: oishikatta. Negative: oishikunai. umai is the casual, more masculine version."
+  },
+  {
+   "id": "re-13",
+   "ja": "お会計お願いします",
+   "romaji": "okaikei onegaishimasu",
+   "en": "The bill, please",
+   "level": 2,
+   "tip": "o- + kaikei (bill, account) + onegaishimasu. Crossing your index fingers in an X is the same request as a gesture."
+  },
+  {
+   "id": "re-14",
+   "ja": "別々でお願いします",
+   "romaji": "betsubetsu de onegaishimasu",
+   "en": "Separate bills, please",
+   "level": 2,
+   "tip": "betsu (separate) doubled for emphasis. de here means 'in that way'. Some places will not split a bill."
+  },
+  {
+   "id": "re-15",
+   "ja": "カードは使えますか",
+   "romaji": "kaado wa tsukaemasu ka",
+   "en": "Can I use a card?",
+   "level": 2,
+   "tip": "tsukaemasu is the potential form of tsukau (use): 'can be used'. wa makes 'card' the topic."
+  },
+  {
+   "id": "re-16",
+   "ja": "アレルギーがあります",
+   "romaji": "arerugii ga arimasu",
+   "en": "I have an allergy",
+   "examples": [
+    {
+     "ja": "ピーナッツのアレルギーがあります。",
+     "romaji": "piinattsu no arerugii ga arimasu.",
+     "en": "I have a peanut allergy."
+    }
+   ],
+   "level": 2,
+   "tip": "X ga arimasu = there is X, I have X. arimasu is for things; imasu is for people and animals."
+  },
+  {
+   "id": "re-17",
+   "ja": "肉は食べられません",
+   "romaji": "niku wa taberaremasen",
+   "en": "I can't eat meat",
+   "level": 2,
+   "tip": "taberaremasen = potential (can eat) + polite negative: cannot eat. wa marks niku as a contrast topic."
+  },
+  {
+   "id": "re-18",
+   "ja": "持ち帰りで",
+   "romaji": "mochikaeri de",
+   "en": "To go / takeaway",
+   "examples": [
+    {
+     "ja": "持ち帰りでお願いします。",
+     "romaji": "mochikaeri de onegaishimasu.",
+     "en": "To go, please."
+    }
+   ],
+   "level": 1,
+   "tip": "mochi (carry, from motsu) + kaeri (return, from kaeru). de = 'as'. teikuauto also works."
+  },
+  {
+   "id": "re-19",
+   "ja": "店内で",
+   "romaji": "tennai de",
+   "en": "For here (eat in)",
+   "level": 1,
+   "tip": "ten (shop) + nai (inside). Your answer to tennai de omeshiagari desu ka, 'for here?'."
+  },
+  {
+   "id": "re-20",
+   "ja": "以上です",
+   "romaji": "ijou desu",
+   "en": "That's all (end of order)",
+   "level": 1,
+   "tip": "ijou = 'that is the extent of it'. Ends an order cleanly. Also means 'the above' in writing."
+  }
+ ]
+}
