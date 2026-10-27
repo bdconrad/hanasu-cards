@@ -223,3 +223,8 @@ nav button:focus-visible, button:focus-visible, input:focus-visible, textarea:fo
 .explainer-table { border-collapse: collapse; margin: 8px 0; font-size: 14px; }
 .explainer-table th, .explainer-table td { text-align: left; padding: 4px 12px 4px 0; border-bottom: 1px solid var(--line); }
 .explainer-table th { color: var(--muted); font-weight: 500; font-size: 12px; }
+
+.sync-out { margin-top: 12px; }
+.qr { background: #fff; padding: 12px; border-radius: 12px; display: inline-block; }
+.qr:empty { display: none; }
+.qr img, .qr canvas { display: block; }

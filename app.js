@@ -186,11 +186,82 @@ function splitMorae(kana) {
   return out;
 }
 
+/* ---------- multi-device merge view ----------
+   Each device keeps its own counters (state.progress, kanaProg, kanjiProg) and a copy of every other
+   device's counters it has synced (others). Counters only grow, so merging is a per-field max per device:
+   idempotent, any direction, any order. Displays read the merged view through viewProg(). */
+const DEVICE = (() => { let d = load('hanasu.device.v1', null); if (!d) { d = Math.random().toString(36).slice(2, 8); save('hanasu.device.v1', d); } return d; })();
+const others = load('hanasu.others.v1', {}); // deviceId -> { c:{id:entry}, k:{...}, j:{...}, t: minutes }
+const MIN0 = Date.UTC(2026, 0, 1); const toMin = ms => ms ? Math.round((ms - MIN0) / 60000) : 0; const fromMin = m => m ? MIN0 + m * 60000 : 0;
+function mergeEntries(list) {
+  const out = { seen: 0, correct: 0, lapses: 0, overconf: 0, last: 0, lastCorrect: null };
+  for (const e of list) if (e && e.seen) {
+    out.seen += e.seen; out.correct += e.correct || 0; out.lapses += e.lapses || 0; out.overconf += e.overconf || 0;
+    if ((e.last || 0) >= out.last) { out.last = e.last || 0; out.lastCorrect = e.lastCorrect; }
+  }
+  return out.seen ? out : null;
+}
+function ownStore(kind) { return kind === 'c' ? state.progress : kind === 'k' ? kanaProg : kanjiProg; }
+function viewProg(kind, id) {
+  const own = ownStore(kind)[id];
+  const rest = Object.values(others).map(d => d[kind] && d[kind][id]).filter(Boolean);
+  if (!rest.length) return own && own.seen ? own : null;
+  return mergeEntries([own, ...rest]);
+}
+function syncedDeviceCount() { return Object.keys(others).length; }
+
+// Payload: { v, d: { deviceId: { c, k, j, t } } } with entries packed as [seen, correct, lapses, overconf, lastMin, lastCorrect].
+const packEntry = e => { const a = [e.seen || 0, e.correct || 0, e.lapses || 0, e.overconf || 0, toMin(e.last), e.lastCorrect ? 1 : 0]; while (a.length > 1 && !a[a.length - 1]) a.pop(); return a; };
+const unpackEntry = a => ({ seen: a[0] || 0, correct: a[1] || 0, lapses: a[2] || 0, overconf: a[3] || 0, last: fromMin(a[4] || 0), lastCorrect: !!a[5] });
+const packStore = st => Object.fromEntries(Object.entries(st).filter(([, e]) => e && e.seen).map(([id, e]) => [id, packEntry(e)]));
+function syncPayload() {
+  const d = {};
+  for (const [id, o] of Object.entries(others)) d[id] = { c: packStore(o.c || {}), k: packStore(o.k || {}), j: packStore(o.j || {}), t: o.t || 0 };
+  d[DEVICE] = { c: packStore(state.progress), k: packStore(kanaProg), j: packStore(kanjiProg), t: toMin(Date.now()) };
+  return { v: 1, d };
+}
+const b64u = { enc: bytes => btoa(String.fromCharCode(...bytes)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''), dec: str => Uint8Array.from(atob(str.replace(/-/g, '+').replace(/_/g, '/')), c => c.charCodeAt(0)) };
+async function encodeSync() {
+  const json = JSON.stringify(syncPayload()), bytes = new TextEncoder().encode(json);
+  if ('CompressionStream' in window) { const cs = new CompressionStream('deflate-raw'); const w = cs.writable.getWriter(); w.write(bytes); w.close(); return 'z' + b64u.enc(new Uint8Array(await new Response(cs.readable).arrayBuffer())); }
+  return 'p' + b64u.enc(bytes);
+}
+async function decodeSync(str) {
+  const bytes = b64u.dec(str.slice(1));
+  if (str[0] === 'z') { if (!('DecompressionStream' in window)) throw new Error('This browser cannot read compressed sync links.'); const ds = new DecompressionStream('deflate-raw'); const w = ds.writable.getWriter(); w.write(bytes); w.close(); return JSON.parse(await new Response(ds.readable).text()); }
+  return JSON.parse(new TextDecoder().decode(bytes));
+}
+// Per-field max merge of one packed store into an unpacked store. Returns how many entries changed.
+function absorb(target, packed) {
+  let changed = 0;
+  for (const [id, a] of Object.entries(packed || {})) {
+    const inc = unpackEntry(a), cur = target[id];
+    if (!cur) { target[id] = inc; changed++; continue; }
+    let c = false;
+    for (const f of ['seen', 'correct', 'lapses', 'overconf']) if ((inc[f] || 0) > (cur[f] || 0)) { cur[f] = inc[f]; c = true; }
+    if ((inc.last || 0) > (cur.last || 0)) { cur.last = inc.last; cur.lastCorrect = inc.lastCorrect; c = true; }
+    if (c) changed++;
+  }
+  return changed;
+}
+function applySync(payload) {
+  if (!payload || payload.v !== 1 || !payload.d) throw new Error('Not a sync link.');
+  const result = { devices: 0, cards: 0, kana: 0, kanji: 0 };
+  for (const [dev, data] of Object.entries(payload.d)) {
+    if (dev === DEVICE) { result.cards += absorb(state.progress, data.c); result.kana += absorb(kanaProg, data.k); result.kanji += absorb(kanjiProg, data.j); continue; }
+    const o = others[dev] || (others[dev] = { c: {}, k: {}, j: {}, t: 0 });
+    result.cards += absorb(o.c, data.c); result.kana += absorb(o.k, data.k); result.kanji += absorb(o.j, data.j);
+    o.t = Math.max(o.t || 0, data.t || 0); result.devices++;
+  }
+  saveProgress(); saveKana(); saveKanji(); save('hanasu.others.v1', others);
+  return result;
+}
+
 /* ---------- progress (lightweight; no scheduling) ---------- */
 function prog(id) {
   return state.progress[id] || (state.progress[id] = { seen: 0, correct: 0, lapses: 0, overconf: 0, lastCorrect: null, last: null });
 }
-function missedLast(id) { const p = state.progress[id]; return !!p && p.seen > 0 && p.lastCorrect === false; }
+function missedLast(id) { const p = viewProg('c', id); return !!p && p.lastCorrect === false; }
 function record(id, correct, conf) {
   const p = prog(id); p.seen++; p.last = Date.now(); p.lastCorrect = correct;
   if (correct) p.correct++; else { p.lapses++; if (conf === 'sure') p.overconf++; }
@@ -287,10 +358,10 @@ function showHome() {
   const n = tpl('t-home');
   const stats = n.querySelector('[data-stats]');
   const refresh = () => {
-    const pool = selectedCards(), seen = pool.filter(c => state.progress[c.id]?.seen);
+    const pool = selectedCards(), views = pool.map(c => viewProg('c', c.id)).filter(Boolean);
     const missed = pool.filter(c => missedLast(c.id)).length;
-    const over = pool.reduce((s, c) => s + (state.progress[c.id]?.overconf || 0), 0);
-    const tries = seen.reduce((s, c) => s + state.progress[c.id].seen, 0), right = seen.reduce((s, c) => s + state.progress[c.id].correct, 0);
+    const over = views.reduce((s, p) => s + (p.overconf || 0), 0);
+    const tries = views.reduce((s, p) => s + p.seen, 0), right = views.reduce((s, p) => s + p.correct, 0), seen = views;
     stats.innerHTML = statBox(pool.length, 'cards in a session') + statBox(missed, 'missed last time')
       + statBox(tries ? Math.round(100 * right / tries) + '%' : '–', 'accuracy') + statBox(over, 'overconfident misses');
   };
@@ -442,8 +513,8 @@ function groupCard() {
 function showBrowse() {
   const n = tpl('t-browse'), wrap = n.querySelector('[data-browse]');
   state.decks.forEach(d => {
-    const rows = d.cards.map(c => { const p = state.progress[c.id];
-      const seen = !p || !p.seen ? '–' : `${p.correct}/${p.seen}`;
+    const rows = d.cards.map(c => { const p = viewProg('c', c.id);
+      const seen = !p ? '–' : `${p.correct}/${p.seen}`;
       return `<tr><td class="ja">${esc(c.ja)}<span class="lvl">L${cardLevel(c)}</span></td><td class="r">${esc(fmtRomaji(c.romaji))}</td><td>${esc(c.en)}</td><td class="due">${seen}${p && p.overconf ? ' · ' + p.overconf + '×sure-wrong' : ''}</td></tr>`; }).join('');
     wrap.append(el(`<div class="browse-deck"><h2>${esc(d.name)} <span class="muted small">${esc(d.file)}</span></h2><p class="muted small">${esc(d.description || '')}</p><table>${rows}</table></div>`));
   });
@@ -467,10 +538,45 @@ function showSettings() {
     try { const d = JSON.parse(await f.text()); if (d.progress) { state.progress = d.progress; saveProgress(); showSettings(); } } catch { alert('Not a valid progress file.'); }
   };
   n.querySelector('[data-reset]').onclick = () => { if (confirm('Erase all progress on this device?')) { state.progress = {}; saveProgress(); showSettings(); } };
+  // sync between devices
+  const out = n.querySelector('[data-sync-out]'), info = n.querySelector('[data-sync-info]');
+  n.querySelector('[data-sync-devices]').textContent = syncedDeviceCount() ? `This device plus ${syncedDeviceCount()} other${syncedDeviceCount() > 1 ? 's' : ''} merged so far.` : 'No other devices merged yet.';
+  n.querySelector('[data-sync-make]').onclick = async () => {
+    const code = await encodeSync();
+    const link = `${location.origin}${location.pathname}#sync=${code}`;
+    out.hidden = false; n.querySelector('[data-sync-link]').value = link;
+    const qr = n.querySelector('[data-qr]'); qr.replaceChildren();
+    const fits = link.length <= 2900;
+    info.textContent = `${Math.round(link.length / 1024 * 10) / 10} KB. ${fits ? 'Scan with the other device\'s camera, or copy and open the link there.' : 'Too much progress for a QR code; copy or share the link instead.'}`;
+    if (fits) {
+      try { await loadQr(); new QRCode(qr, { text: link, width: 256, height: 256, correctLevel: QRCode.CorrectLevel.L }); }
+      catch (e) { info.textContent += ' QR unavailable offline; use the link.'; }
+    }
+    n.querySelector('[data-sync-copy]').onclick = async () => { try { await navigator.clipboard.writeText(link); info.textContent = 'Link copied.'; } catch { n.querySelector('[data-sync-link]').select(); } };
+    const sh = n.querySelector('[data-sync-share]'); sh.hidden = !navigator.share;
+    sh.onclick = () => navigator.share({ title: 'Hanasu Cards sync', url: link }).catch(() => {});
+  };
   n.querySelector('[data-voice-info]').textContent = 'speechSynthesis' in window
     ? (jaVoice ? `Japanese voice: ${jaVoice.name}` : 'No Japanese voice found on this device. Audio prompts will be silent.')
     : 'This browser has no speech synthesis.';
   render(n, 'settings');
 }
 
-loadDecks().then(showHome).catch(err => { view.innerHTML = `<p>Could not load decks: ${esc(err.message)}. Serve this folder over http (e.g. <code>python3 -m http.server</code>); file:// blocks fetch.</p>`; });
+let qrPromise = null;
+function loadQr() {
+  if (window.QRCode) return Promise.resolve();
+  return qrPromise || (qrPromise = new Promise((res, rej) => { const sc = document.createElement('script'); sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js'; sc.onload = res; sc.onerror = () => { qrPromise = null; rej(new Error('qr')); }; document.head.append(sc); }));
+}
+async function handleSyncHash() {
+  const m = location.hash.match(/^#sync=(.+)$/); if (!m) return false;
+  history.replaceState(null, '', location.pathname);
+  const n = tpl('t-synced');
+  try {
+    const r = applySync(await decodeSync(m[1]));
+    n.querySelector('[data-summary]').innerHTML = statBox(r.devices, 'devices merged') + statBox(r.cards, 'card records') + statBox(r.kana, 'kana records') + statBox(r.kanji, 'kanji records');
+    n.querySelector('[data-synced-msg]').textContent = 'Counts from the other device are added to yours. Syncing the same link twice changes nothing.';
+  } catch (e) { n.querySelector('[data-synced-msg]').textContent = 'Could not read that sync link: ' + e.message; }
+  render(n, 'settings'); return true;
+}
+window.addEventListener('hashchange', () => { if (state.decks.length) handleSyncHash(); });
+loadDecks().then(async () => { if (!(await handleSyncHash())) showHome(); }).catch(err => { view.innerHTML = `<p>Could not load decks: ${esc(err.message)}. Serve this folder over http (e.g. <code>python3 -m http.server</code>); file:// blocks fetch.</p>`; });

@@ -23,7 +23,9 @@ Open http://localhost:8787. `file://` does not work because the decks load with 
 - Card fields: id, level (1 words, 2 phrases, 3 sentences), ja, romaji, en, accept, accept_en, notes, tip, kana, examples. See README.md.
 - Every card has a `tip` (parts, register, polite or casual counterpart). Add one for any new card.
 - `kanji-data.js` must contain every kanji used in `decks/*.json`. Check with the snippet in README.md after adding cards.
-- Progress is localStorage only: `hanasu.progress.v1` (cards), `hanasu.kana.v1`, `hanasu.kanji.v1`, prefs under `hanasu.*`.
+- Progress is localStorage only: `hanasu.progress.v1` (cards), `hanasu.kana.v1`, `hanasu.kanji.v1`, prefs under `hanasu.*`. Those hold this device's own counters. `hanasu.others.v1` holds synced copies from other devices keyed by device id; `hanasu.device.v1` is this device's id.
+- Always read progress through `viewProg(kind, id)` (kind c, k, j), which merges own + others. Write only to the own stores, and stamp `last: Date.now()` on every write; the merge uses it to pick the latest answer.
+- Sync links: `#sync=<z|p><base64url>`; `encodeSync` / `decodeSync` / `applySync` in app.js. Merge is per-device, per-field max, so it must stay idempotent.
 
 ## Verify
 

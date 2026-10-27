@@ -21,6 +21,10 @@ Then open http://localhost:8787. Speak or Listen runs every card in the selected
 - Listen mode plays Japanese audio with no text. Play, Slow, and Syllables (one mora at a time, then the whole phrase slowly).
 - Group mode makes one phone the host. Everyone answers out loud, host grades.
 
+## Sync between devices
+
+Settings → Make sync link. The link carries this device's progress, compressed, in the URL fragment; nothing goes to a server. Open it on another device (scan the QR with the camera, or Copy / Share) and the two merge. Each device keeps its own counters plus a copy of every other device's, and merging is a per-field max per device, so syncing in either direction or repeating a link never double-counts. When progress outgrows what a QR can hold (~2.9 KB of link), the screen offers the link only. The QR generator is the one outside dependency, loaded from cdnjs only when the sync screen is opened.
+
 ## Kana and kanji
 
 The Kana tab has hiragana and katakana charts (basic, dakuten, combinations) with audio on tap and a toggle to hide romaji. Practice modes: Read (see the kana, type the romaji) and Hear (listen, pick the kana from look-alikes in the same row or column). The Kanji tab lists every kanji used in the decks with meaning, on and kun readings, and the deck words it appears in; its practice shows a word in kanji and asks for the romaji. Kanji entries live in `kanji-data.js`; add one there when a new deck word introduces a kanji.

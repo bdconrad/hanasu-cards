@@ -70,7 +70,7 @@ function kanaCell(key, group, row, col) {
 const KANA_CELLS = Object.entries(KANA_ROWS).flatMap(([g, rows]) => rows.flatMap((r, ri) => r.map((k, ci) => k && kanaCell(k, g, ri, ci)).filter(Boolean)));
 const glyph = c => kanaPrefs.script === 'kata' ? c.kata : c.hira;
 const kid = c => `${kanaPrefs.script}:${c.key}`;
-const kstate = c => { const p = kanaProg[kid(c)]; return !p || !p.seen ? '' : p.lastCorrect ? 'ok' : 'miss'; };
+const kstate = c => { const p = viewProg('k', kid(c)); return !p ? '' : p.lastCorrect ? 'ok' : 'miss'; };
 
 /* ---------- page ---------- */
 function showKana(tab) {
@@ -92,10 +92,10 @@ function renderKanaChart(body) {
   controls.querySelector('[data-show-romaji]').onchange = e => { kanaPrefs.showRomaji = e.target.checked; saveKanaPrefs(); body.classList.toggle('hide-romaji', !kanaPrefs.showRomaji); };
   body.classList.toggle('hide-romaji', !kanaPrefs.showRomaji);
   body.append(controls);
-  const all = statsOf(KANA_CELLS.map(c => kanaProg[kid(c)]));
+  const all = statsOf(KANA_CELLS.map(c => viewProg('k', kid(c))));
   const stats = el('<div class="stats"></div>');
   stats.innerHTML = statBox(`${all.covered}/${all.total}`, 'kana practiced') + statBox(pct(all.acc), 'accuracy')
-    + Object.keys(KANA_ROWS).map(g => statBox(pct(statsOf(KANA_CELLS.filter(c => c.group === g).map(c => kanaProg[kid(c)])).acc), GROUP_NAMES[g].split(' ')[0].toLowerCase() + ' accuracy')).join('');
+    + Object.keys(KANA_ROWS).map(g => statBox(pct(statsOf(KANA_CELLS.filter(c => c.group === g).map(c => viewProg('k', kid(c)))).acc), GROUP_NAMES[g].split(' ')[0].toLowerCase() + ' accuracy')).join('');
   body.append(stats);
   for (const [g, rows] of Object.entries(KANA_ROWS)) {
     const sec = el(`<section class="kana-group"><h2>${GROUP_NAMES[g]}</h2><div class="kana-grid cols-${rows[0].length}"></div></section>`);
@@ -105,7 +105,7 @@ function renderKanaChart(body) {
       const c = KANA_CELLS.find(x => x.key === k);
       const b = el(`<button type="button" class="kana-cell ${kstate(c)}" aria-label="${esc(glyph(c))} ${esc(c.romaji)}"><span class="g">${esc(glyph(c))}</span><span class="r">${esc(c.romaji)}</span></button>`);
       b.onclick = () => tapSpeak(glyph(c));
-      shade(b, kanaProg[kid(c)]); attachTip(b, () => `${glyph(c)} ${c.romaji}: ${tipText(kanaProg[kid(c)])}`);
+      shade(b, viewProg('k', kid(c))); attachTip(b, () => `${glyph(c)} ${c.romaji}: ${tipText(viewProg('k', kid(c)))}`);
       grid.append(b);
     }));
     body.append(sec);
@@ -142,7 +142,7 @@ function kanaNext() {
   const result = q('[data-result]');
   const finish = (correct, typedLabel) => {
     const p = kanaProg[kid(c)] || (kanaProg[kid(c)] = { seen: 0, correct: 0 });
-    p.seen++; if (correct) p.correct++; p.lastCorrect = correct; saveKana();
+    p.seen++; if (correct) p.correct++; p.lastCorrect = correct; p.last = Date.now(); saveKana();
     s.done++; s.results.push(correct);
     if (!correct) { s.missed.push({ c, typed: typedLabel }); s.queue.splice(Math.min(s.queue.length, 3 + Math.floor(Math.random() * 3)), 0, c); s.total++; }
     q('[data-answer]').hidden = true; result.hidden = false;
@@ -215,9 +215,9 @@ function renderKanjiSheet(body) {
   top.append(tapSpeedControl(true));
   body.append(top);
   const kwords = [...state.cards.values()].filter(c => /[\u4e00-\u9fff]/.test(c.ja));
-  const ks = statsOf(kwords.map(c => kanjiProg[c.id]));
+  const ks = statsOf(kwords.map(c => viewProg('j', c.id)));
   const stats = el('<div class="stats"></div>');
-  stats.innerHTML = statBox(`${ks.covered}/${ks.total}`, 'words practiced') + statBox(pct(ks.acc), 'accuracy') + statBox(kwords.filter(c => kanjiProg[c.id] && kanjiProg[c.id].lastCorrect === false).length, 'missed last time');
+  stats.innerHTML = statBox(`${ks.covered}/${ks.total}`, 'words practiced') + statBox(pct(ks.acc), 'accuracy') + statBox(kwords.filter(c => { const p = viewProg('j', c.id); return p && p.lastCorrect === false; }).length, 'missed last time');
   body.append(stats);
   const wrap = el('<div class="kanji-list"></div>'); body.append(wrap);
   const draw = (filter = '') => {
@@ -228,7 +228,7 @@ function renderKanjiSheet(body) {
         <div><div class="kanji-meaning">${esc(meaning)}</div><div class="muted small">${on ? 'on: ' + esc(on) : ''}${on && kun ? ' · ' : ''}${kun ? 'kun: ' + esc(kun) : ''}</div></div></div>
         <div class="kanji-words">${words.get(k).map(c => `<button type="button" class="kanji-word" data-id="${esc(c.id)}"><span class="ja">${esc(c.ja)}</span><span class="r">${esc(fmtRomaji(c.romaji))}</span><span class="e">${esc(c.en)}</span></button>`).join('')}</div></div>`);
       card.querySelector('.kanji-glyph').onclick = () => tapSpeak(k);
-      card.querySelectorAll('.kanji-word').forEach(b => { const w = state.cards.get(b.dataset.id); b.onclick = () => tapSpeak(w.ja, w); shade(b, kanjiProg[w.id]); attachTip(b, () => `${w.ja}: ${tipText(kanjiProg[w.id])}`); });
+      card.querySelectorAll('.kanji-word').forEach(b => { const w = state.cards.get(b.dataset.id); b.onclick = () => tapSpeak(w.ja, w); shade(b, viewProg('j', w.id)); attachTip(b, () => `${w.ja}: ${tipText(viewProg('j', w.id))}`); });
       return card;
     }));
   };
@@ -237,7 +237,8 @@ function renderKanjiSheet(body) {
   top.querySelector('[data-kanji-practice]').onclick = () => {
     const pool = [...state.cards.values()].filter(c => /[\u4e00-\u9fff]/.test(c.ja));
     const kp = kanjiProg;
-    const missed = pool.filter(c => kp[c.id] && kp[c.id].lastCorrect === false), rest = pool.filter(c => !(kp[c.id] && kp[c.id].lastCorrect === false));
+    const ml = c => { const p = viewProg('j', c.id); return !!p && p.lastCorrect === false; };
+    const missed = pool.filter(ml), rest = pool.filter(c => !ml(c));
     state.kanji = { queue: [...shuffle(missed), ...shuffle(rest)], total: pool.length, done: 0, results: [], missed: [], prog: kp };
     kanjiNext();
   };
@@ -255,7 +256,7 @@ function kanjiNext() {
   form.onsubmit = ev => {
     ev.preventDefault(); if (!input.value.trim()) return;
     const g = gradeRomaji(input.value, c), correct = g === 'ok';
-    const p = s.prog[c.id] || (s.prog[c.id] = { seen: 0, correct: 0 }); p.seen++; if (correct) p.correct++; p.lastCorrect = correct; saveKanji();
+    const p = s.prog[c.id] || (s.prog[c.id] = { seen: 0, correct: 0 }); p.seen++; if (correct) p.correct++; p.lastCorrect = correct; p.last = Date.now(); saveKanji();
     s.done++; s.results.push(correct);
     if (!correct) { s.missed.push({ c, typed: input.value }); s.queue.splice(Math.min(s.queue.length, 3 + Math.floor(Math.random() * 3)), 0, c); s.total++; }
     form.hidden = true; const r = q('[data-result]'); r.hidden = false;

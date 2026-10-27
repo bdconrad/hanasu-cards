@@ -213,7 +213,25 @@
       <label class="btn">Import <input type="file" accept="application/json" data-import hidden></label>
       <button class="danger" data-reset>Reset all progress</button>
     </div>
+    <h2>Sync between devices</h2>
+    <p class="muted small">Progress lives in this browser. A sync link carries it to another device and merges the two; nothing is sent to a server. <span data-sync-devices></span></p>
+    <button class="btn" data-sync-make>Make sync link</button>
+    <div class="sync-out" data-sync-out hidden>
+      <div class="qr" data-qr></div>
+      <label class="field"><span>Link</span><input data-sync-link type="text" readonly></label>
+      <div class="row"><button data-sync-copy>Copy link</button><button data-sync-share hidden>Share…</button></div>
+      <p class="muted small" data-sync-info></p>
+    </div>
     <p class="muted small" data-voice-info></p>
+  </section>
+</template>
+
+<template id="t-synced">
+  <section class="panel">
+    <h1>Progress merged</h1>
+    <div class="stats" data-summary></div>
+    <p class="muted" data-synced-msg></p>
+    <button class="primary" data-nav="home">Continue</button>
   </section>
 </template>
 
