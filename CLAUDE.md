@@ -27,6 +27,14 @@ Open http://localhost:8787. `file://` does not work because the decks load with 
 - Always read progress through `viewProg(kind, id)` (kind c, k, j), which merges own + others. Write only to the own stores, and stamp `last: Date.now()` on every write; the merge uses it to pick the latest answer.
 - Sync links: `#sync=<z|p><base64url>`; `encodeSync` / `decodeSync` / `applySync` in app.js. Merge is per-device, per-field max, so it must stay idempotent.
 
+## Offline
+
+`sw.js` caches the shell and decks, network first with cache fallback. New files must be listed in SHELL there. Bump CACHE on changes that should clear old entries. Keep the registration path relative (`sw.js`) because the site lives under /hanasu-cards/ on Pages.
+
+## Public repo
+
+The repo is public. Do not mention other products or apps by name in text, comments, or commits.
+
 ## Verify
 
 Serve, open in Chrome, and click through the changed mode. Check console for errors. Phone width (400px) must have no horizontal scroll.

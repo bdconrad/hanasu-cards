@@ -21,6 +21,10 @@ Then open http://localhost:8787. Speak or Listen runs every card in the selected
 - Listen mode plays Japanese audio with no text. Play, Slow, and Syllables (one mora at a time, then the whole phrase slowly).
 - Group mode makes one phone the host. Everyone answers out loud, host grades.
 
+## Offline and home screen
+
+`sw.js` is a service worker: network first, cache fallback. After one online visit the whole app, decks included, works offline. `manifest.webmanifest` and `icon.svg` let it be added to a phone home screen as an app. Bump `CACHE` in `sw.js` when you want old cached files cleared.
+
 ## Sync between devices
 
 Settings → Make sync link. The link carries this device's progress, compressed, in the URL fragment; nothing goes to a server. Open it on another device (scan the QR with the camera, or Copy / Share) and the two merge. Each device keeps its own counters plus a copy of every other device's, and merging is a per-field max per device, so syncing in either direction or repeating a link never double-counts. When progress outgrows what a QR can hold (~2.9 KB of link), the screen offers the link only. The QR generator is the one outside dependency, loaded from cdnjs only when the sync screen is opened.

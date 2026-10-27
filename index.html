@@ -6,6 +6,11 @@
 <title>Hanasu Cards</title>
 <meta name="description" content="Speaking-first Japanese flash cards. Production, not recognition.">
 <link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#15140f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Hanasu">
 </head>
 <body>
 <header class="top">
@@ -206,7 +211,7 @@
     <label class="field"><span>Speech rate (0.5 to 1.2)</span>
       <input type="number" min="0.5" max="1.2" step="0.05" data-set="rate"></label>
     <label class="field check"><input type="checkbox" data-set="autoplay"><span>Auto-play Japanese audio on reveal</span></label>
-    <label class="field check"><input type="checkbox" data-set="macron"><span>Show long vowels with macrons (ō, ū), Duolingo style. Typing is unaffected: ou, oo, ō, or a single o all pass.</span></label>
+    <label class="field check"><input type="checkbox" data-set="macron"><span>Show long vowels with macrons (ō, ū), textbook style. Typing is unaffected: ou, oo, ō, or a single o all pass.</span></label>
     <h2>Progress</h2>
     <div class="row">
       <button data-export>Export progress</button>
@@ -238,5 +243,6 @@
 <script src="app.js"></script>
 <script src="kanji-data.js"></script>
 <script src="kana.js"></script>
+<script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});</script>
 </body>
 </html>

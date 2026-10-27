@@ -1,0 +1,11 @@
+{
+  "name": "Hanasu Cards",
+  "short_name": "Hanasu",
+  "description": "Speaking-first Japanese flash cards.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#15140f",
+  "theme_color": "#15140f",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
